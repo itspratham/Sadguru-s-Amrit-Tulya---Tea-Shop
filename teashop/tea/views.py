@@ -7,4 +7,7 @@ def BaseView(request):
 
 def AddItem(request):
     if request.method == 'GET':
-        return render()
+        return render(request,"",context={"message": "thik hai"})
+    elif request.method == 'POST':
+
+        return render(request,"",context={"message":"added a form"})
