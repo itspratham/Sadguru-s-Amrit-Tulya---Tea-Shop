@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+    <h2>Do you want to delete the form</h2>
+    <button type="submit" >Confirm </button>
+    <input type="button" name="cancel" value="Cancel" onClick="window.location='{% url 'addview' %}'"/>
+</form>

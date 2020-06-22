@@ -1,11 +1,54 @@
 {% extends "base.html" %}
-
 {% block content %}
+{% load staticfiles %}
+<style>
+
+      button {
+              background-color: #4CAF50;
+              color: white;
+              padding: 10px 20px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 10%;
+              opacity: 5;
+              }
+      #imgage     {
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              padding: 5px;
+              width: 150px;
+              }
+
+      #imgage:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
 <div class="header">
         <a href="/" ><img src="/static/tea/media/download.jpg",
                           width =50 height=50 class="logo" style="float:left"></img></a>
         <div class="header-right">
-            <a class="active" href="/add/">Add a component</a>
+            <a class="active" href="{% url 'additem' %}">Add a component</a>
         </div>
+</div>
+<div class="container">
+    {% for t in tea %}
+    {% if t %}
+    <div>
+        <a href="" ><img src= "{{ t.photo.name }}" alt="image" style="width:8%;"> </a>
+        <h2 style="text-transform: uppercase;display: block;
+                      font-size: 1.5em;
+                      margin-top: 0em;
+                      margin-bottom: 0em;
+                      margin-left: 0;
+                      margin-right: 0;
+                      color: brown"> {{ t.name }} {{ t.price }}</h2>
+        <a href="{% url 'deleteview' t.id %}"><button>Delete</button></a>
+        {% block deleteitem %}
+        {% endblock %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
 </div>
 {% endblock %}
