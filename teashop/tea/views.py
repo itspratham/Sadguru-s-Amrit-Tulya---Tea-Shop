@@ -39,3 +39,9 @@ def DeleteView(request,id):
         tea.delete()
         return redirect(BaseView)
     return render(request,'tea/deleteitem.html',{"tea":tea})
+
+def DetailView(request,id):
+    tea = TeaComponent.objects.get(pk=id)
+    if request.method == 'GET':
+        return render(request,'tea/detail.html',{"tea":tea})
+    return render(request, 'tea/detail.html', {"tea": tea})

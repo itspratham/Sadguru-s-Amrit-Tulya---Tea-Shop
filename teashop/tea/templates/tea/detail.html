@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<ul class="list-group">
+      <img src= "{{ tea.photo.name }}" alt="image" style="width:30%;">
+      <li class="list-group-item">Name: {{ tea.name }}</li>
+      <li class="list-group-item"> Price : {{ tea.price }}</li>
+      <li class="list-group-item"><h4>Description:</h4>{{ tea.description}}</li>
+</ul>
+{% endblock %}

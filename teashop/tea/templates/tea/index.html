@@ -35,7 +35,7 @@
     {% for t in tea %}
     {% if t %}
     <div>
-        <a href="" ><img src= "{{ t.photo.name }}" alt="image" style="width:8%;"> </a>
+        <a href="{% url 'detailview' t.id %}" ><img src= "{{ t.photo.name }}" alt="image" style="width:8%;"> </a>
         <h2 style="text-transform: uppercase;display: block;
                       font-size: 1.5em;
                       margin-top: 0em;
